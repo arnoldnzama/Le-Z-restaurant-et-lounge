@@ -1,0 +1,125 @@
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (si vous utilisez npm)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build files
+dist/
+build/
+*.min.js
+*.min.css
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# Images temporaires (décommenter si nécessaire)
+# assets/images/temp/
+# assets/images/backup/
+
+# Documentation temporaire
+*.draft.md
+TODO.md
+NOTES.md
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Test files
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+
+# Database
+*.sql
+*.sqlite
+*.db
+
+# Compressed files
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# System files
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Windows
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+nbproject/
+.buildpath
+
+# Misc
+.sass-cache/
+.eslintcache
+.stylelintcache

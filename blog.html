@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez nos événements inoubliables : karaoké, concerts et soirées exceptionnelles au Le Z Restaurant & Lounge">
+  <meta name="keywords" content="événements, karaoké, concerts, soirées, Le Z Restaurant, Kinshasa">
+  
+  <title>Le Z Restaurant & Lounge - Blog & Événements</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/ico/logo.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/ico/logo.ico">
+  <link rel="apple-touch-icon" href="assets/images/logo/logo.jpg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#c6a266">
+</head>
+<body>
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-to-main">Aller au contenu principal</a>
+  
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <div class="nav-container">
+      <a href="index.html" class="logo" aria-label="Retour à l'accueil">
+        <img src="assets/images/logo/logo.jpg" alt="Le Z Restaurant & Lounge Logo" class="logo-img">
+      </a>
+      <ul class="nav-menu" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+        <li role="none"><a href="menu.html" role="menuitem">Menu</a></li>
+        <li role="none"><a href="reservation.html" role="menuitem">Réservation</a></li>
+        <li role="none"><a href="blog.html" class="active" role="menuitem" aria-current="page">Événements</a></li>
+        <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="blog-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Nos Événements</h1>
+        <p class="hero-subtitle">Revivez les moments inoubliables</p>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="blog-filter-section">
+      <div class="container">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">Tous</button>
+          <button class="filter-btn" data-filter="karaoke">Karaoké</button>
+          <button class="filter-btn" data-filter="concert">Concerts</button>
+          <button class="filter-btn" data-filter="soiree">Soirées</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Grid Section -->
+    <section class="blog-grid-section">
+      <div class="container">
+        <div class="blog-grid" id="blogGrid">
+          
+          <!-- Event Card 1 - Karaoké -->
+          <article class="blog-card" data-category="karaoke">
+            <div class="blog-card-media">
+              <video autoplay muted loop playsinline>
+                <source src="assets/images/vid/live.mp4" type="video/mp4">
+                <img src="assets/images/img/1.jpg" alt="Soirée Karaoké" loading="lazy">
+              </video>
+              <span class="blog-badge">Karaoké</span>
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-date">15 Novembre 2024</span>
+              <h3>Soirée Karaoké Exceptionnelle</h3>
+              <p>Une soirée mémorable où nos clients ont brillé sur scène avec des performances incroyables.</p>
+              <button class="btn btn-primary" onclick="openModal('modal1')">Voir plus</button>
+            </div>
+          </article>
+
+          <!-- Event Card 2 - Concert -->
+          <article class="blog-card" data-category="concert">
+            <div class="blog-card-media">
+              <img src="assets/images/img/2.jpg" alt="Concert Live" loading="lazy">
+              <span class="blog-badge">Concert</span>
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-date">10 Novembre 2024</span>
+              <h3>Concert Jazz Live</h3>
+              <p>Une ambiance intimiste avec des artistes locaux talentueux qui ont enchanté notre public.</p>
+              <button class="btn btn-primary" onclick="openModal('modal2')">Voir plus</button>
+            </div>
+          </article>
+
+          <!-- Event Card 3 - Soirée -->
+          <article class="blog-card" data-category="soiree">
+            <div class="blog-card-media">
+              <img src="assets/images/img/3.jpg" alt="Soirée VIP" loading="lazy">
+              <span class="blog-badge">Soirée</span>
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-date">5 Novembre 2024</span>
+              <h3>Soirée VIP Inoubliable</h3>
+              <p>Une soirée exclusive avec cocktails signature et ambiance lounge raffinée.</p>
+              <button class="btn btn-primary" onclick="openModal('modal3')">Voir plus</button>
+            </div>
+          </article>
+
+          <!-- Event Card 4 - Karaoké -->
+          <article class="blog-card" data-category="karaoke">
+            <div class="blog-card-media">
+              <img src="assets/images/img/8.jpg" alt="Karaoké Night" loading="lazy">
+              <span class="blog-badge">Karaoké</span>
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-date">1 Novembre 2024</span>
+              <h3>Karaoké Night</h3>
+              <p>Des voix exceptionnelles et une ambiance électrique pour cette soirée karaoké.</p>
+              <button class="btn btn-primary" onclick="openModal('modal4')">Voir plus</button>
+            </div>
+          </article>
+
+          <!-- Event Card 5 - Concert -->
+          <article class="blog-card" data-category="concert">
+            <div class="blog-card-media">
+              <img src="assets/images/img/10.jpg" alt="Concert Afro" loading="lazy">
+              <span class="blog-badge">Concert</span>
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-date">28 Octobre 2024</span>
+              <h3>Concert Afro-Fusion</h3>
+              <p>Une fusion musicale unique mêlant rythmes africains et sonorités modernes.</p>
+              <button class="btn btn-primary" onclick="openModal('modal5')">Voir plus</button>
+            </div>
+          </article>
+
+          <!-- Event Card 6 - Soirée -->
+          <article class="blog-card" data-category="soiree">
+            <div class="blog-card-media">
+              <img src="assets/images/img/1.jpg" alt="Soirée Thématique" loading="lazy">
+              <span class="blog-badge">Soirée</span>
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-date">20 Octobre 2024</span>
+              <h3>Soirée Thématique</h3>
+              <p>Une soirée à thème avec décoration spéciale et animations surprises.</p>
+              <button class="btn btn-primary" onclick="openModal('modal6')">Voir plus</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="blog-cta-section">
+      <div class="container">
+        <div class="blog-cta-content">
+          <h2>Ne Manquez Pas Nos Prochains Événements</h2>
+          <p>Réservez votre place dès maintenant pour vivre des moments inoubliables</p>
+          <a href="reservation.html" class="btn btn-primary btn-large">Réserver</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modals for each event -->
+  <div id="modal1" class="blog-modal">
+    <div class="blog-modal-content">
+      <button class="close" onclick="closeModal('modal1')" aria-label="Fermer">&times;</button>
+      <h2>Soirée Karaoké Exceptionnelle</h2>
+      <div class="modal-gallery">
+        <div class="modal-video-container">
+          <video controls>
+            <source src="assets/images/vid/live.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+        </div>
+        <img src="assets/images/img/2.jpg" alt="Karaoké 2">
+        <img src="assets/images/img/3.jpg" alt="Karaoké 3">
+      </div>
+      <p>Une soirée karaoké mémorable où nos clients ont pu exprimer leur talent vocal dans une ambiance conviviale et chaleureuse. Des performances exceptionnelles et des moments de partage inoubliables.</p>
+    </div>
+  </div>
+
+  <div id="modal2" class="blog-modal">
+    <div class="blog-modal-content">
+      <button class="close" onclick="closeModal('modal2')" aria-label="Fermer">&times;</button>
+      <h2>Concert Jazz Live</h2>
+      <div class="modal-gallery">
+        <img src="assets/images/img/2.jpg" alt="Concert 1">
+        <img src="assets/images/img/8.jpg" alt="Concert 2">
+      </div>
+      <p>Un concert jazz intimiste avec des musiciens locaux de talent. Une soirée musicale raffinée qui a transporté notre public dans l'univers du jazz moderne et classique.</p>
+    </div>
+  </div>
+
+  <div id="modal3" class="blog-modal">
+    <div class="blog-modal-content">
+      <button class="close" onclick="closeModal('modal3')" aria-label="Fermer">&times;</button>
+      <h2>Soirée VIP Inoubliable</h2>
+      <div class="modal-gallery">
+        <img src="assets/images/img/3.jpg" alt="Soirée VIP 1">
+        <img src="assets/images/img/10.jpg" alt="Soirée VIP 2">
+      </div>
+      <p>Une soirée exclusive réservée à nos clients VIP avec cocktails signature, menu dégustation et ambiance lounge sophistiquée. Un moment privilégié dans un cadre exceptionnel.</p>
+    </div>
+  </div>
+
+  <div id="modal4" class="blog-modal">
+    <div class="blog-modal-content">
+      <button class="close" onclick="closeModal('modal4')" aria-label="Fermer">&times;</button>
+      <h2>Karaoké Night</h2>
+      <div class="modal-gallery">
+        <img src="assets/images/img/8.jpg" alt="Karaoké Night 1">
+        <img src="assets/images/img/1.jpg" alt="Karaoké Night 2">
+      </div>
+      <p>Une soirée karaoké électrique avec des performances vocales impressionnantes. Nos clients ont chanté leurs chansons préférées dans une ambiance festive et décontractée.</p>
+    </div>
+  </div>
+
+  <div id="modal5" class="blog-modal">
+    <div class="blog-modal-content">
+      <button class="close" onclick="closeModal('modal5')" aria-label="Fermer">&times;</button>
+      <h2>Concert Afro-Fusion</h2>
+      <div class="modal-gallery">
+        <img src="assets/images/img/10.jpg" alt="Concert Afro 1">
+        <img src="assets/images/img/2.jpg" alt="Concert Afro 2">
+      </div>
+      <p>Un concert unique mêlant rythmes africains traditionnels et sonorités contemporaines. Une célébration de la richesse musicale africaine dans un cadre moderne.</p>
+    </div>
+  </div>
+
+  <div id="modal6" class="blog-modal">
+    <div class="blog-modal-content">
+      <button class="close" onclick="closeModal('modal6')" aria-label="Fermer">&times;</button>
+      <h2>Soirée Thématique</h2>
+      <div class="modal-gallery">
+        <img src="assets/images/img/1.jpg" alt="Soirée Thématique 1">
+        <img src="assets/images/img/3.jpg" alt="Soirée Thématique 2">
+      </div>
+      <p>Une soirée à thème avec décoration spéciale, animations surprises et une ambiance festive. Nos clients ont vécu une expérience unique et mémorable.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/images/logo/logo.jpg" alt="Le Z Restaurant & Lounge Logo">
+          </div>
+          <h3>Le Z Restaurant & Lounge</h3>
+          <p>Une expérience culinaire inoubliable au cœur de Kinshasa</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook" class="social-link">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter" class="social-link">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Horaires</h3>
+          <p><strong>Lundi - Vendredi</strong></p>
+          <p>Déjeuner: 12h - 14h</p>
+          <p>Dîner: 19h - 22h</p>
+          <p><strong>Samedi - Dimanche</strong></p>
+          <p>Déjeuner: 12h - 15h</p>
+          <p>Dîner: 19h - 23h</p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>📍 Immeuble Matrix, 8ième niveau</p>
+          <p>Kinshasa, Democratic Republic of the Congo</p>
+          <p>📞 <a href="tel:+𝟐𝟒𝟑𝟖𝟐𝟖𝟔𝟔𝟒𝟔𝟐𝟖">+𝟐𝟒𝟑 𝟖𝟐𝟖 𝟔𝟔𝟒 𝟔𝟐𝟖</a></p>
+          <p>✉️ <a href="mailto:contact@lezrestaurant.cd">contact@lezrestaurant.cd</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <p>Restez informé de nos événements et offres spéciales</p>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" placeholder="Votre email" required aria-label="Email pour newsletter">
+            <button type="submit" class="btn btn-primary">S'inscrire</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Le Z Restaurant & Lounge. Tous droits réservés.</p>
+        <div class="footer-links">
+          <a href="#">Mentions légales</a>
+          <span>•</span>
+          <a href="#">Politique de confidentialité</a>
+          <span>•</span>
+          <a href="#">CGV</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js" defer></script>
+  <script src="js/blog.js" defer></script>
+</body>
+</html>

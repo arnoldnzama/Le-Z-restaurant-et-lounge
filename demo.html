@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Démo - Nouvelles Fonctionnalités</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .demo-section {
+      padding: 60px 20px;
+      border-bottom: 2px solid var(--neutral-gray);
+    }
+    .demo-title {
+      color: var(--primary-gold);
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+    .demo-description {
+      text-align: center;
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .demo-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .demo-card:hover {
+      transform: translateY(-5px);
+    }
+    .demo-card h3 {
+      color: var(--primary-burgundy);
+      margin-bottom: 15px;
+    }
+    .demo-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+    .demo-button {
+      margin-top: 20px;
+    }
+    .color-palette {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .color-box {
+      text-align: center;
+    }
+    .color-swatch {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+    }
+    .color-name {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+    .color-code {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Le Z Restaurant & Lounge</a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservation.html">Réservation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="demo.html" class="active">Démo</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main style="padding-top: 80px;">
+    <!-- Hero Demo -->
+    <section class="demo-section" style="background: linear-gradient(135deg, var(--neutral-dark) 0%, var(--neutral-black) 100%); color: white;">
+      <h1 class="demo-title" style="color: var(--primary-gold);">🎨 Démonstration des Nouvelles Fonctionnalités</h1>
+      <p class="demo-description" style="color: rgba(255,255,255,0.8);">
+        Découvrez toutes les améliorations apportées au site, inspirées du template Wix Bar 121.
+        Testez chaque fonctionnalité en interagissant avec les éléments ci-dessous.
+      </p>
+    </section>
+
+    <!-- Palette de Couleurs -->
+    <section class="demo-section">
+      <h2 class="demo-title">Palette de Couleurs</h2>
+      <p class="demo-description">
+        Nouvelle palette inspirée des bars et lounges modernes, avec des tons chauds et élégants.
+      </p>
+      <div class="color-palette">
+        <div class="color-box">
+          <div class="color-swatch" style="background-color: #c6a266;"></div>
+          <div class="color-name">Burgundy</div>
+          <div class="color-code">#c6a266</div>
+        </div>
+        <div class="color-box">
+          <div class="color-swatch" style="background-color: #d4af37;"></div>
+          <div class="color-name">Gold</div>
+          <div class="color-code">#d4af37</div>
+        </div>
+        <div class="color-box">
+          <div class="color-swatch" style="background-color: #b87333;"></div>
+          <div class="color-name">Copper</div>
+          <div class="color-code">#b87333</div>
+        </div>
+        <div class="color-box">
+          <div class="color-swatch" style="background-color: #0a0a0a;"></div>
+          <div class="color-name">Black</div>
+          <div class="color-code">#0a0a0a</div>
+        </div>
+        <div class="color-box">
+          <div class="color-swatch" style="background-color: #1a1a1a;"></div>
+          <div class="color-name">Dark Gray</div>
+          <div class="color-code">#1a1a1a</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Boutons -->
+    <section class="demo-section">
+      <h2 class="demo-title">Boutons Améliorés</h2>
+      <p class="demo-description">
+        Nouveaux effets visuels avec dégradés, animations de vague et transitions fluides.
+      </p>
+      <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn-primary">Bouton Principal</button>
+        <button class="btn btn-secondary">Bouton Secondaire</button>
+        <button class="btn btn-primary btn-large">Bouton Large</button>
+        <button class="btn btn-primary" onclick="showNotification('Test de notification !', 'success')">
+          Tester Notification
+        </button>
+      </div>
+    </section>
+
+    <!-- Statistiques -->
+    <section class="stats-section">
+      <div class="container">
+        <h2 class="demo-title" style="color: var(--primary-gold);">Compteurs Animés</h2>
+        <p class="demo-description" style="color: rgba(255,255,255,0.8); margin-bottom: 60px;">
+          Les chiffres s'animent automatiquement quand la section devient visible.
+        </p>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Années d'Excellence</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Clients Satisfaits</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Plats Signature</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">5★</div>
+            <div class="stat-label">Note Moyenne</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galerie -->
+    <section class="gallery-section">
+      <div class="container">
+        <h2 class="demo-title" style="color: var(--primary-gold);">Galerie Interactive</h2>
+        <p class="demo-description" style="color: rgba(255,255,255,0.8); margin-bottom: 60px;">
+          Cliquez sur une image pour l'ouvrir en lightbox plein écran.
+        </p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500" alt="Restaurant" loading="lazy">
+            <div class="gallery-overlay">
+              <h3>Ambiance</h3>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500" alt="Plat" loading="lazy">
+            <div class="gallery-overlay">
+              <h3>Cuisine</h3>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500" alt="Bar" loading="lazy">
+            <div class="gallery-overlay">
+              <h3>Bar</h3>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=500" alt="Dessert" loading="lazy">
+            <div class="gallery-overlay">
+              <h3>Desserts</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2 class="demo-title" style="color: var(--primary-gold);">Témoignages Clients</h2>
+        <div class="testimonials-container">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Une expérience culinaire exceptionnelle ! Le service est impeccable et chaque plat est une véritable œuvre d'art."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Marie Kabongo</h4>
+                <p>Cliente régulière</p>
+                <div class="testimonial-rating">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fonctionnalités -->
+    <section class="demo-section">
+      <h2 class="demo-title">Fonctionnalités Principales</h2>
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>🎨 Design Moderne</h3>
+          <p>Interface élégante inspirée des meilleurs templates Wix avec des dégradés et effets sophistiqués.</p>
+        </div>
+        <div class="demo-card">
+          <h3>📱 Responsive</h3>
+          <p>Parfaitement adapté à tous les écrans : mobile, tablette et desktop.</p>
+        </div>
+        <div class="demo-card">
+          <h3>⚡ Animations</h3>
+          <p>Animations fluides au scroll, effets hover et transitions élégantes.</p>
+        </div>
+        <div class="demo-card">
+          <h3>♿ Accessible</h3>
+          <p>Navigation au clavier, ARIA labels, support du mode contraste élevé.</p>
+        </div>
+        <div class="demo-card">
+          <h3>🖼️ Lightbox</h3>
+          <p>Galerie photos avec visualisation plein écran et navigation intuitive.</p>
+        </div>
+        <div class="demo-card">
+          <h3>🔔 Notifications</h3>
+          <p>Système de notifications toast moderne pour les feedbacks utilisateur.</p>
+        </div>
+        <div class="demo-card">
+          <h3>📊 Compteurs</h3>
+          <p>Statistiques animées qui s'incrémentent automatiquement au scroll.</p>
+        </div>
+        <div class="demo-card">
+          <h3>🎯 Performance</h3>
+          <p>Optimisé pour la vitesse avec lazy loading et GPU acceleration.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instructions -->
+    <section class="demo-section" style="background-color: var(--neutral-gray);">
+      <h2 class="demo-title">Comment Tester</h2>
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>1. Navbar</h3>
+          <p>Faites défiler la page pour voir la navbar changer d'opacité.</p>
+        </div>
+        <div class="demo-card">
+          <h3>2. Compteurs</h3>
+          <p>Les chiffres s'animent automatiquement quand vous scrollez jusqu'à eux.</p>
+        </div>
+        <div class="demo-card">
+          <h3>3. Galerie</h3>
+          <p>Cliquez sur une image pour l'ouvrir en plein écran. Fermez avec Échap ou ×.</p>
+        </div>
+        <div class="demo-card">
+          <h3>4. Notifications</h3>
+          <p>Cliquez sur "Tester Notification" pour voir une notification apparaître.</p>
+        </div>
+        <div class="demo-card">
+          <h3>5. Retour en Haut</h3>
+          <p>Scrollez vers le bas pour voir apparaître le bouton circulaire.</p>
+        </div>
+        <div class="demo-card">
+          <h3>6. Menu Mobile</h3>
+          <p>Réduisez la fenêtre pour tester le menu hamburger responsive.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Retour -->
+    <section class="demo-section" style="text-align: center;">
+      <h2 class="demo-title">Prêt à Explorer ?</h2>
+      <p class="demo-description">
+        Retournez sur la page d'accueil pour voir toutes ces fonctionnalités en action !
+      </p>
+      <a href="index.html" class="btn btn-primary btn-large">Voir la Page d'Accueil</a>
+    </section>
+  </main>
+
+  <!-- Footer simplifié -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2024 Le Z Restaurant & Lounge - Page de Démonstration</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
