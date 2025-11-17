@@ -1022,3 +1022,432 @@ if (document.readyState === 'loading') {
 } else {
   initLazyLoadingFallback();
 }
+
+
+// ===================================
+// Responsive Utilities
+// ===================================
+
+// Detect device type
+function isMobile() {
+  return window.innerWidth <= 767;
+}
+
+function isTablet() {
+  return window.innerWidth >= 768 && window.innerWidth <= 1023;
+}
+
+function isDesktop() {
+  return window.innerWidth >= 1024;
+}
+
+// Detect touch device
+function isTouchDevice() {
+  return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+}
+
+// ===================================
+// Viewport Height Fix for Mobile
+// ===================================
+
+function setVH() {
+  // Fix for mobile browsers where 100vh includes address bar
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Set on load and resize
+window.addEventListener('load', setVH);
+window.addEventListener('resize', setVH);
+window.addEventListener('orientationchange', setVH);
+
+// ===================================
+// Responsive Image Loading
+// ===================================
+
+function loadResponsiveImages() {
+  const images = document.querySelectorAll('img[data-src-mobile], img[data-src-tablet], img[data-src-desktop]');
+  
+  images.forEach(img => {
+    let src = img.src;
+    
+    if (isMobile() && img.dataset.srcMobile) {
+      src = img.dataset.srcMobile;
+    } else if (isTablet() && img.dataset.srcTablet) {
+      src = img.dataset.srcTablet;
+    } else if (isDesktop() && img.dataset.srcDesktop) {
+      src = img.dataset.srcDesktop;
+    }
+    
+    if (src && img.src !== src) {
+      img.src = src;
+    }
+  });
+}
+
+// Load on page load and window resize
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadResponsiveImages);
+} else {
+  loadResponsiveImages();
+}
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(loadResponsiveImages, 250);
+});
+
+// ===================================
+// Enhanced Mobile Menu
+// ===================================
+
+function initEnhancedMobileMenu() {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (!hamburger || !navMenu) return;
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (isMobile() && navMenu.classList.contains('active')) {
+      if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+  });
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Prevent body scroll when menu is open
+  const observer = new MutationObserver(() => {
+    if (navMenu.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+  
+  observer.observe(navMenu, { attributes: true, attributeFilter: ['class'] });
+}
+
+// Initialize enhanced mobile menu
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initEnhancedMobileMenu);
+} else {
+  initEnhancedMobileMenu();
+}
+
+// ===================================
+// Responsive Table Handler
+// ===================================
+
+function makeTablesResponsive() {
+  const tables = document.querySelectorAll('table');
+  
+  tables.forEach(table => {
+    if (!table.parentElement.classList.contains('table-responsive')) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'table-responsive';
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    }
+  });
+}
+
+// Initialize responsive tables
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', makeTablesResponsive);
+} else {
+  makeTablesResponsive();
+}
+
+// ===================================
+// Orientation Change Handler
+// ===================================
+
+function handleOrientationChange() {
+  // Reload carousel on orientation change
+  const carousel = document.querySelector('.carousel');
+  if (carousel) {
+    // Reinitialize carousel
+    setTimeout(() => {
+      const currentSlide = carousel.querySelector('.carousel-slide.active');
+      if (currentSlide) {
+        const index = Array.from(carousel.querySelectorAll('.carousel-slide')).indexOf(currentSlide);
+        goToSlide(index);
+      }
+    }, 300);
+  }
+  
+  // Adjust viewport height
+  setVH();
+  
+  // Reload responsive images
+  loadResponsiveImages();
+}
+
+window.addEventListener('orientationchange', handleOrientationChange);
+
+// ===================================
+// Prevent Zoom on Input Focus (iOS)
+// ===================================
+
+function preventZoomOnFocus() {
+  if (isTouchDevice() && isMobile()) {
+    const inputs = document.querySelectorAll('input, select, textarea');
+    
+    inputs.forEach(input => {
+      // Ensure font-size is at least 16px to prevent zoom
+      const computedStyle = window.getComputedStyle(input);
+      const fontSize = parseFloat(computedStyle.fontSize);
+      
+      if (fontSize < 16) {
+        input.style.fontSize = '16px';
+      }
+    });
+  }
+}
+
+// Initialize zoom prevention
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', preventZoomOnFocus);
+} else {
+  preventZoomOnFocus();
+}
+
+// ===================================
+// Responsive Video Handler
+// ===================================
+
+function makeVideosResponsive() {
+  const videos = document.querySelectorAll('video');
+  
+  videos.forEach(video => {
+    // Pause videos on mobile to save bandwidth
+    if (isMobile() && video.autoplay) {
+      video.pause();
+      video.removeAttribute('autoplay');
+      
+      // Add play button overlay
+      const playButton = document.createElement('button');
+      playButton.className = 'video-play-button';
+      playButton.innerHTML = '▶';
+      playButton.setAttribute('aria-label', 'Lire la vidéo');
+      
+      video.parentElement.style.position = 'relative';
+      video.parentElement.appendChild(playButton);
+      
+      playButton.addEventListener('click', () => {
+        video.play();
+        playButton.style.display = 'none';
+      });
+    }
+  });
+}
+
+// Initialize responsive videos
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', makeVideosResponsive);
+} else {
+  makeVideosResponsive();
+}
+
+// ===================================
+// Debounce Function for Performance
+// ===================================
+
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// ===================================
+// Optimized Scroll Handler
+// ===================================
+
+let ticking = false;
+
+function optimizedScroll(callback) {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      callback();
+      ticking = false;
+    });
+    ticking = true;
+  }
+}
+
+// Replace existing scroll listeners with optimized version
+window.addEventListener('scroll', () => {
+  optimizedScroll(() => {
+    // Your scroll-based functions here
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      if (window.pageYOffset > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+  });
+});
+
+// ===================================
+// Touch Swipe Detection
+// ===================================
+
+function addSwipeSupport(element, onSwipeLeft, onSwipeRight) {
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+  
+  element.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+  
+  element.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+  }, { passive: true });
+  
+  function handleSwipe() {
+    const diffX = touchStartX - touchEndX;
+    const diffY = touchStartY - touchEndY;
+    
+    // Only register horizontal swipes
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+      if (diffX > 0) {
+        // Swipe left
+        if (onSwipeLeft) onSwipeLeft();
+      } else {
+        // Swipe right
+        if (onSwipeRight) onSwipeRight();
+      }
+    }
+  }
+}
+
+// ===================================
+// Responsive Font Size Adjuster
+// ===================================
+
+function adjustFontSizes() {
+  const root = document.documentElement;
+  const width = window.innerWidth;
+  
+  if (width < 768) {
+    root.style.fontSize = '14px';
+  } else if (width < 1024) {
+    root.style.fontSize = '15px';
+  } else {
+    root.style.fontSize = '16px';
+  }
+}
+
+// Adjust on load and resize
+window.addEventListener('load', adjustFontSizes);
+window.addEventListener('resize', debounce(adjustFontSizes, 250));
+
+// ===================================
+// Network Status Handler
+// ===================================
+
+function handleNetworkChange() {
+  if ('connection' in navigator) {
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    
+    if (connection) {
+      // Adjust quality based on connection
+      if (connection.effectiveType === '4g') {
+        // Load high quality images
+        document.body.classList.add('high-quality');
+      } else if (connection.effectiveType === '3g' || connection.effectiveType === '2g') {
+        // Load lower quality images
+        document.body.classList.add('low-quality');
+      }
+    }
+  }
+  
+  // Handle online/offline status
+  window.addEventListener('online', () => {
+    showNotification('Connexion rétablie', 'success');
+  });
+  
+  window.addEventListener('offline', () => {
+    showNotification('Vous êtes hors ligne', 'error');
+  });
+}
+
+// Initialize network handler
+handleNetworkChange();
+
+// ===================================
+// Performance Monitoring
+// ===================================
+
+if ('PerformanceObserver' in window) {
+  // Monitor long tasks
+  const observer = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+      if (entry.duration > 50) {
+        console.warn('Long task detected:', entry);
+      }
+    }
+  });
+  
+  try {
+    observer.observe({ entryTypes: ['longtask'] });
+  } catch (e) {
+    // Longtask not supported
+  }
+}
+
+// ===================================
+// Lazy Load Background Images
+// ===================================
+
+function lazyLoadBackgrounds() {
+  const elements = document.querySelectorAll('[data-bg]');
+  
+  const bgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        element.style.backgroundImage = `url(${element.dataset.bg})`;
+        element.removeAttribute('data-bg');
+        bgObserver.unobserve(element);
+      }
+    });
+  });
+  
+  elements.forEach(el => bgObserver.observe(el));
+}
+
+// Initialize lazy load backgrounds
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', lazyLoadBackgrounds);
+} else {
+  lazyLoadBackgrounds();
+}
+
+console.log('Responsive utilities loaded successfully');

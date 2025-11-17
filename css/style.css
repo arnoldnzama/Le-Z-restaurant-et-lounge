@@ -171,6 +171,39 @@ img {
    Desktop: 1024px+
    =================================== */
 
+/* Base Mobile-First Responsive Adjustments */
+@media (max-width: 767px) {
+  :root {
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --spacing-xxl: 3rem;
+  }
+  
+  /* Ensure all interactive elements meet minimum touch target size */
+  button, a, input, select, textarea, .btn, .carousel-btn, .carousel-indicator {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve text readability on small screens */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Better spacing for mobile */
+  .container {
+    padding: 0 1rem;
+  }
+  
+  /* Optimize images for mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 
 /* ===================================
    Navigation Styles
@@ -301,16 +334,20 @@ img {
 
 /* Mobile Navigation - Tablet and below (max-width: 767px) */
 @media (max-width: 767px) {
+  .nav-container {
+    padding: 0.75rem 1rem;
+  }
+  
   .logo-img {
-    height: 45px;
+    height: 40px;
   }
   
   .hamburger {
     display: flex;
     padding: var(--spacing-xs);
     /* Increase touch target */
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 48px;
+    min-height: 48px;
     justify-content: center;
     align-items: center;
   }
@@ -862,18 +899,30 @@ a, button, .btn, .menu-card, .info-card, .carousel-btn, .carousel-indicator {
 @media (max-width: 767px) {
   .hero {
     background-attachment: scroll;
-    min-height: 500px;
+    min-height: 100vh;
+    height: auto;
   }
   
   .hero-content {
-    padding: var(--spacing-md);
+    padding: 2rem 1rem;
+  }
+  
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
   }
   
   .presentation-section {
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: 2rem 1rem;
   }
   
-  /* Ensure touch targets are at least 44x44px on mobile */
+  /* Ensure touch targets are at least 48x48px on mobile */
   .btn,
   .nav-menu li a,
   .carousel-btn,
@@ -884,19 +933,31 @@ a, button, .btn, .menu-card, .info-card, .carousel-btn, .carousel-indicator {
   a.btn-primary,
   input[type="submit"],
   input[type="button"] {
-    min-height: 44px;
-    min-width: 44px;
+    min-height: 48px;
+    min-width: 48px;
   }
   
   /* Increase tap area for small interactive elements */
   .carousel-indicator {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
   }
   
   /* Add more padding to links for easier tapping */
   .nav-menu li a {
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Better button sizing on mobile */
+  .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
   }
 }
 
@@ -5886,5 +5947,882 @@ main {
 @media (min-width: 1024px) {
   .container {
     padding: 0 var(--spacing-xl);
+  }
+}
+
+
+/* ===================================
+   Blog Page Mobile Optimizations
+   =================================== */
+
+@media (max-width: 767px) {
+  .blog-hero {
+    min-height: 50vh;
+    background-attachment: scroll;
+  }
+  
+  .blog-filter-section {
+    padding: 1.5rem 0;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .filter-btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    min-height: 44px;
+  }
+  
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .blog-card {
+    margin-bottom: 1rem;
+  }
+  
+  .blog-card-media {
+    height: 200px;
+  }
+  
+  .blog-card-content {
+    padding: 1rem;
+  }
+  
+  .blog-card-content h3 {
+    font-size: 1.25rem;
+  }
+  
+  .blog-modal-content {
+    padding: 1.5rem;
+    max-width: 95vw;
+  }
+  
+  .modal-gallery {
+    gap: 1rem;
+  }
+  
+  .modal-video-container video {
+    max-height: 250px;
+  }
+}
+
+/* Tablet Blog Adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .blog-card-media {
+    height: 220px;
+  }
+}
+
+/* Desktop Blog Adjustments */
+@media (min-width: 1024px) {
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .blog-card-media {
+    height: 250px;
+  }
+}
+
+/* ===================================
+   Reservation Page Mobile Optimizations
+   =================================== */
+
+@media (max-width: 767px) {
+  .reservation-section {
+    padding: 2rem 0;
+  }
+  
+  .reservation-intro {
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .reservation-intro h2 {
+    font-size: 1.5rem;
+  }
+  
+  .reservation-intro p {
+    font-size: 1rem;
+  }
+  
+  .reservation-form {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .reservation-form .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .reservation-form label {
+    font-size: 0.875rem;
+  }
+  
+  .reservation-form .form-control {
+    padding: 0.875rem;
+    font-size: 1rem;
+  }
+  
+  .time-slots-section {
+    margin-top: 1rem;
+  }
+  
+  .time-period {
+    margin-bottom: 1.5rem;
+  }
+  
+  .time-period-title {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .time-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .time-slot {
+    padding: 0.75rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+  
+  .reservation-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .info-card-modern {
+    padding: 1.25rem;
+  }
+  
+  .info-icon {
+    font-size: 2rem;
+  }
+  
+  .info-card-modern h3 {
+    font-size: 1.125rem;
+  }
+  
+  .info-card-modern p {
+    font-size: 0.9rem;
+  }
+  
+  #confirmation-message {
+    margin: 0 1rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  #confirmation-message h2 {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #reservation-details {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet Reservation Adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .reservation-form {
+    padding: 2rem;
+  }
+  
+  .time-slots-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .reservation-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop Reservation Adjustments */
+@media (min-width: 1024px) {
+  .reservation-form {
+    padding: 3rem;
+  }
+  
+  .time-slots-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .reservation-info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===================================
+   Time Slots Responsive Styles
+   =================================== */
+
+.time-slots-section {
+  width: 100%;
+}
+
+.time-period {
+  margin-bottom: 2rem;
+}
+
+.time-period-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary-burgundy);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.time-slot {
+  padding: 1rem;
+  background-color: var(--neutral-white);
+  border: 2px solid var(--neutral-gray);
+  border-radius: var(--radius-sm);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: center;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-slot:hover:not(.disabled) {
+  background-color: var(--primary-gold);
+  color: var(--neutral-white);
+  border-color: var(--primary-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(198, 162, 102, 0.3);
+}
+
+.time-slot.selected {
+  background-color: var(--primary-burgundy);
+  color: var(--neutral-white);
+  border-color: var(--primary-burgundy);
+  box-shadow: 0 4px 12px rgba(198, 162, 102, 0.4);
+}
+
+.time-slot.disabled {
+  background-color: var(--neutral-gray);
+  color: var(--text-light);
+  border-color: var(--neutral-gray);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.time-slots-info {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ===================================
+   Info Card Modern Styles
+   =================================== */
+
+.reservation-info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.info-card-modern {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(198, 162, 102, 0.1);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-gold), var(--accent-copper));
+}
+
+.info-card-modern:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.info-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.info-card-modern h3 {
+  color: var(--primary-burgundy);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.info-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--primary-gold);
+  margin: 1rem 0;
+}
+
+.info-card-modern p {
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.info-time {
+  color: var(--primary-burgundy);
+  font-weight: 600;
+}
+
+/* ===================================
+   General Mobile Improvements
+   =================================== */
+
+@media (max-width: 767px) {
+  /* Improve section spacing */
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .section-sm {
+    padding: 1.5rem 0;
+  }
+  
+  .section-lg {
+    padding: 3rem 0;
+  }
+  
+  /* Better typography on mobile */
+  h1 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Improve form spacing */
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Better modal sizing */
+  .modal-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  /* Improve footer on mobile */
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+  
+  .footer-content {
+    gap: 2rem;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.125rem;
+  }
+  
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+  
+  .footer-bottom {
+    padding-top: 1.5rem;
+  }
+  
+  /* Improve carousel on mobile */
+  .carousel-section {
+    padding: 2rem 0;
+  }
+  
+  .carousel {
+    border-radius: var(--radius-md);
+  }
+  
+  .carousel-slide img {
+    height: 250px;
+  }
+  
+  .carousel-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 1.25rem;
+  }
+  
+  /* Better stats section on mobile */
+  .stats-section {
+    padding: 2rem 0;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.875rem;
+  }
+  
+  /* Improve gallery on mobile */
+  .gallery-section {
+    padding: 2rem 0;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .gallery-item {
+    aspect-ratio: 4/3;
+  }
+  
+  /* Better testimonials on mobile */
+  .testimonials-section {
+    padding: 2rem 0;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+  }
+  
+  /* Improve events section on mobile */
+  .events-section {
+    padding: 2rem 0;
+  }
+  
+  .events-grid {
+    gap: 1.5rem;
+  }
+  
+  .event-content {
+    padding: 1.5rem;
+  }
+  
+  .event-content h3 {
+    font-size: 1.375rem;
+  }
+  
+  /* Better split section on mobile */
+  .split-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .split-content {
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+  
+  .split-image {
+    min-height: 300px;
+    order: -1;
+  }
+}
+
+/* ===================================
+   Tablet Specific Improvements
+   =================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .split-section {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .split-image {
+    min-height: 500px;
+  }
+}
+
+/* ===================================
+   Desktop Specific Improvements
+   =================================== */
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .split-section {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .split-image {
+    min-height: 600px;
+  }
+}
+
+/* ===================================
+   Landscape Mobile Adjustments
+   =================================== */
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+  }
+  
+  .hero-content {
+    padding: 1rem;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .nav-menu {
+    max-width: 250px;
+  }
+}
+
+/* ===================================
+   Touch Device Optimizations
+   =================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .menu-card:hover,
+  .info-card:hover,
+  .gallery-item:hover,
+  .testimonial-card:hover,
+  .event-card:hover {
+    transform: none;
+  }
+  
+  /* Add active states for touch feedback */
+  .btn:active,
+  .time-slot:active,
+  .filter-btn:active,
+  .carousel-btn:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  
+  /* Improve tap targets */
+  a, button, input, select, textarea {
+    -webkit-tap-highlight-color: rgba(198, 162, 102, 0.2);
+  }
+  
+  /* Better scrolling on touch devices */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+
+/* ===================================
+   Enhanced Social Media Icons
+   =================================== */
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 50%;
+  color: var(--neutral-white);
+  transition: all var(--transition-normal);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--primary-gold);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+  z-index: -1;
+}
+
+.social-link:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.social-link:hover {
+  color: var(--neutral-black);
+  border-color: var(--primary-gold);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
+
+.social-link:active {
+  transform: translateY(-1px) scale(1);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-normal);
+  position: relative;
+  z-index: 1;
+}
+
+.social-link:hover svg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Specific hover colors for each social platform */
+.social-link[title="Facebook"]:hover {
+  background: linear-gradient(135deg, #1877f2 0%, #0c63d4 100%);
+  border-color: #1877f2;
+  color: var(--neutral-white);
+}
+
+.social-link[title="Instagram"]:hover {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: #e6683c;
+  color: var(--neutral-white);
+}
+
+.social-link[title="Twitter/X"]:hover {
+  background: linear-gradient(135deg, #000000 0%, #14171a 100%);
+  border-color: #000000;
+  color: var(--neutral-white);
+}
+
+.social-link[title="WhatsApp"]:hover {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  border-color: #25d366;
+  color: var(--neutral-white);
+}
+
+.social-link[title="TikTok"]:hover {
+  background: linear-gradient(135deg, #000000 0%, #ff0050 50%, #00f2ea 100%);
+  border-color: #ff0050;
+  color: var(--neutral-white);
+}
+
+.social-link[title="YouTube"]:hover {
+  background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+  border-color: #ff0000;
+  color: var(--neutral-white);
+}
+
+/* Animation on page load */
+@keyframes socialIconFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.footer-social .social-link {
+  animation: socialIconFadeIn 0.6s ease-out backwards;
+}
+
+.footer-social .social-link:nth-child(1) { animation-delay: 0.1s; }
+.footer-social .social-link:nth-child(2) { animation-delay: 0.2s; }
+.footer-social .social-link:nth-child(3) { animation-delay: 0.3s; }
+.footer-social .social-link:nth-child(4) { animation-delay: 0.4s; }
+.footer-social .social-link:nth-child(5) { animation-delay: 0.5s; }
+.footer-social .social-link:nth-child(6) { animation-delay: 0.6s; }
+
+/* Pulse animation for WhatsApp (call to action) */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+}
+
+.social-link[title="WhatsApp"] {
+  animation: pulse 2s infinite;
+}
+
+/* Mobile adjustments for social icons */
+@media (max-width: 767px) {
+  .footer-social {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  
+  .social-link {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .social-link svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer-social {
+    gap: 0.875rem;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1024px) {
+  .social-link {
+    width: 46px;
+    height: 46px;
+  }
+  
+  .social-link svg {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+/* Accessibility improvements */
+.social-link:focus-visible {
+  outline: 3px solid var(--primary-gold);
+  outline-offset: 4px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .social-link {
+    border-width: 3px;
+  }
+  
+  .social-link:hover {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .social-link,
+  .social-link::before,
+  .social-link svg {
+    transition: none;
+  }
+  
+  .footer-social .social-link {
+    animation: none;
+  }
+  
+  .social-link[title="WhatsApp"] {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .footer-social {
+    display: none;
   }
 }
